@@ -1,10 +1,10 @@
 import React from 'react'
-import {view, text} from 'react-native'
+import {View, Text} from 'react-native'
 
 export default function Restaurants(){
     return(
-        <view>
-            <text>Restaurants</text>
-        </view>
+        <View>
+            <Text>Restaurants</Text>
+        </View>
     )
 }

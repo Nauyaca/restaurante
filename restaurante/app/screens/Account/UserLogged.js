@@ -1,10 +1,12 @@
 import React from 'react'
 import {View, Text} from 'react-native'
 
-export default function Search(){
+export default function UserLogged(){
     return(
         <View>
-            <Text>Search</Text>
+            <Text>
+                UserLogged
+            </Text>
         </View>
     )
 }

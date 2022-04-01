@@ -1,20 +1,23 @@
 import React from "react"
 import { StyleSheet, View, Text, Image} from 'react-native'
+import RegisterForm from "../../components/Account/RegisterForm"
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 
 export default function Register(){
     return(
-        <View>
+        <KeyboardAwareScrollView>
             <Image
-                source={require('../../../assets/img/61k3PlzSg5L._AC_SL1200_.jpg')}
+                source={require('../../../assets/img/302927040.png')}
                 resizeMode='contain'
                 Style={styles.logo}
                 />
             <View style = {styles.viewForms}>
-                <Text>Formulario de registro</Text>
+                <RegisterForm/>
             </View>
-        </View>
+        </KeyboardAwareScrollView>
     )
 
+    
 }
 
 const styles = StyleSheet.create({
@@ -24,7 +27,7 @@ const styles = StyleSheet.create({
     },
     logo:{
         width:'100%',
-        height: 150,
+        height: 50,
         marginTop: 20
     }
 })

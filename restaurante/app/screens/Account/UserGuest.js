@@ -42,7 +42,7 @@ const styles = StyleSheet.create({
         fontWeight:'bold',
         fontSize: 19,
         marginBottom: 10,
-        textAlign:'Center'
+        textAlign:'center'
     },
     description:{
     marginBottom:20,

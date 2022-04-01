@@ -4,15 +4,14 @@ import {Divider} from 'react-native-elements'
 import { useNavigation } from '@react-navigation/native'
 
 export default function Login(){
-    const navigation = useNavigation()
+    
     return(
         <ScrollView>
             <Image
-            source={require('../../../assets/img/61k3PlzSg5L._AC_SL1200_.jpg')}
+            source={require('../../../assets/img/302927040.png')}
             resizeMode='contain'
             Style={styles.logo}
         />
-
         <View style={styles.viewContainer}>
             <Text>Login Form</Text>
             <CreateAccount/>
@@ -23,6 +22,7 @@ export default function Login(){
 }
 
 function CreateAccount(){
+    const navigation = useNavigation ()
     return(
         <Text style = {styles.textRegister}>
             ¿Aùn no tienes cuenta mi bro? {' '}
@@ -30,7 +30,7 @@ function CreateAccount(){
                  style = {styles.linkRegister}
                  onPress={()=>navigation.navigate('register')}
             >
-            Sing up
+            Registrate
             </Text>
         </Text>
     )

@@ -1,4 +1,4 @@
-import React, {useCallback, useState} from "react"
+import React, { useState } from "react"
 import { StyleSheet, View, Text} from 'react-native' 
 import { Input, Icon, Button } from 'react-native-elements'
 import { validateEmail } from '../../utils/validation'

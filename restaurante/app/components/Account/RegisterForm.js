@@ -5,7 +5,8 @@ import { validateEmail } from '../../utils/validation'
 
 
 
-export default function RegisterForm(){
+export default function RegisterForm(props){
+    const {toastRef} = (props)
     const [showPassword, setShowPassword] = useState(false)
     const [showRepeatPassword, setShowRepeatPassword] = useState(false)
     const [formData, setFormData] = useState(defaultFormValues())
@@ -14,15 +15,45 @@ export default function RegisterForm(){
        //  console.log(formData)
        //  console.log(validateEmail(formData.email))
        if(formData.email.length===0||formData.password.length===0||formData.repeatPassword.length===0){
-           console.log('Todos los campos son requeridos')
+           toastRef.current.show({
+               type: 'error',
+               position: 'top',
+               text1: 'empty',
+               text2: 'todos los campos son requeridos',
+               visibilityTime: 3000,
+           })
        } else if (!validateEmail(formData.email)){
-           console.log('El email no es correcto')
+        toastRef.current.show({
+            type: 'error',
+            position: 'top',
+            text1: 'Email',
+            text2: 'El email no es correcto',
+            visibilityTime: 3000,
+        })
        } else if (formData.password !== formData.repeatPassword){
-           console.log('Las contraseñas deben ser iguales')
+        toastRef.current.show({
+            type: 'error',
+            position: 'top',
+            text1: 'Password2',
+            text2: 'Las contraseñas deben ser iguales',
+            visibilityTime: 3000,
+        })
        } else if (formData.password.length < 6){
-         console.log('Tu contraseña es muy corta carnal te van a hackear')
+        toastRef.current.show({
+            type: 'error',
+            position: 'top',
+            text1: 'password1',
+            text2: 'La contraseña es muy corta',
+            visibilityTime: 3000,
+        })
        } else{
-         console.log ('Todo correcto')
+        toastRef.current.show({
+            type: 'error',
+            position: 'top',
+            text1: 'nice',
+            text2: 'Todo correcto',
+            visibilityTime: 3000,
+        })
        }
     }
 

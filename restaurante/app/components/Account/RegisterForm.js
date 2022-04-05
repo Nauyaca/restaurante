@@ -2,6 +2,8 @@ import React, { useState } from "react"
 import { StyleSheet, View, Text} from 'react-native' 
 import { Input, Icon, Button } from 'react-native-elements'
 import { validateEmail } from '../../utils/validation'
+import firebase from 'firebase'
+import {useNavigation} from '@react-navigation/native'
 
 
 
@@ -10,6 +12,7 @@ export default function RegisterForm(props){
     const [showPassword, setShowPassword] = useState(false)
     const [showRepeatPassword, setShowRepeatPassword] = useState(false)
     const [formData, setFormData] = useState(defaultFormValues())
+    const navigation = useNavigation()
 
     const onSubmit = () => {
        //  console.log(formData)
@@ -47,12 +50,20 @@ export default function RegisterForm(props){
             visibilityTime: 3000,
         })
        } else{
-        toastRef.current.show({
-            type: 'error',
-            position: 'top',
-            text1: 'nice',
-            text2: 'Todo correcto',
-            visibilityTime: 3000,
+        firebase
+        .auth()
+        .createUserWithEmailAndPassword(formData.email, formData.password)
+        .then((response)=>{
+            navigation.navigate('account')
+        })
+        .catch(()=>{
+            toastRef.current.show({
+                type: 'error',
+                position: 'top',
+                text1: 'password1',
+                text2: 'Este correo ya ha sido registrado',
+                visibilityTime: 3000,
+            })
         })
        }
     }

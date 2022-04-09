@@ -4,6 +4,7 @@ import firebase from 'firebase'
 import Toast from 'react-native-toast-message'
 import {Button} from 'react-native-elements'
 import InfoUser from '../../components/Account/InfoUser'
+import AccountOptions from '../../components/Account/AccountOptions'
 
 
 
@@ -20,9 +21,7 @@ export default function UserLogged(){
     return(
         <View style={styles.viewUserInfo}>
             {userInfo&&<InfoUser userInfo={userInfo} toastRef={toastRef}/>}
-            <Text>
-             AccountOptions
-            </Text>
+            <AccountOptions userInfo = {userInfo} toastRef={toastRef}/>
             <Button 
                 title= 'Cerrar sesion' 
                 buttonStyle={styles.btnCloseSession}

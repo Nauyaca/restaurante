@@ -4,6 +4,7 @@ import {ListItem, Icon} from 'react-native-elements'
 import Modal from '../Modal'
 import ChangeDisplayNameForm from "./ChangeDisplayNameForm"
 import ChangeDisplayEmailForm from "./ChangeDisplayEmailForm"
+import ChangeDisplayPasswordForm from './ChangeDisplayPasswordForm'
 
 export default function AccountOptions(props){
     const {userInfo, toastRef, setReloadUserInfo} = props
@@ -37,7 +38,10 @@ export default function AccountOptions(props){
             setShowModal(true)
                break
             case 'displayPassword':
-            setRenderComponent(<Text>Cambiando contraseña</Text>)
+                setRenderComponent(<ChangeDisplayPasswordForm  
+                    setShowModal={setShowModal}
+                    toastRef={toastRef}                      
+                />)
             setShowModal(true)
                 break
                 default:
